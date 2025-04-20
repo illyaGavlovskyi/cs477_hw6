@@ -10,7 +10,20 @@ int main()
     
     int day[n + 1];
     day[0] = 0;
-    day[1] = max(r[0], c[0]);
+    // day[1] = max(r[0], c[0]);
+    char dayChoices[n + 1];
+    if(r[0] > c[0])
+    {
+        day[1] = r[0];
+        dayChoices[1] = 'r';
+    }
+    else
+    {
+        day[1] = c[0];
+        dayChoices[1] = 'c';
+    }
+
+    
     for(int i = 2; i < n + 1; i++)
     {
         // cout << i <<endl;
@@ -18,19 +31,26 @@ int main()
         if(day[i - 1] + r[i - 1] > day[i - 2] + c[i - 1])
         {
             day[i] = day[i - 1] + r[i - 1];
+            dayChoices[i] = 'r';
         }
         else
         {
             day[i] = day[i - 2] + c[i - 1];
+            dayChoices[i] = 'c';
+            dayChoices[i - 1] = 'n';
         }
         
         // day[i] = max(day[i - 1] + r[i], day[i - 2] + c[i]);
     }
-    ofstream out("revenue_pb_out.txt");
+    ofstream out("revenue_pc_out.txt");
     for (int i = 1; i <= n; i++) {
         out << "Day " << i << ": " << day[i] << "\n";
     }
     out << "\nOptimal Total Revenue: " << day[n] << "\n";
+    for (int i = 1; i <= n; i++) {
+        out << "\nDay " << i << ": " << dayChoices[i] << "\n";
+    }
+
     out.close();
     return 0;
 }
