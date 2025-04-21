@@ -43,12 +43,15 @@ int main()
         // day[i] = max(day[i - 1] + r[i], day[i - 2] + c[i]);
     }
     ofstream out("revenue_pc_out.txt");
+    out << "Revenue Table:\n";
     for (int i = 1; i <= n; i++) {
         out << "Day " << i << ": " << day[i] << "\n";
     }
-    out << "\nOptimal Total Revenue: " << day[n] << "\n";
+    out << "\nTotal Revenue: " << day[n] << "\n";
+
+    out << "\nChoice Table:\n";
     for (int i = 1; i <= n; i++) {
-        out << "\nDay " << i << ": " << dayChoices[i] << "\n";
+        out << "Day " << i << ": " << dayChoices[i] << "\n";
     }
 
     out.close();

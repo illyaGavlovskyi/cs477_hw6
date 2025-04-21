@@ -30,7 +30,7 @@ int main()
     for (int i = 1; i <= n; i++) {
         out << "Day " << i << ": " << day[i] << "\n";
     }
-    out << "\nOptimal Total Revenue: " << day[n] << "\n";
+    out << "\nTotal Revenue: " << day[n] << "\n";
     out.close();
     return 0;
 }
