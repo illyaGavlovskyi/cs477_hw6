@@ -15,9 +15,10 @@ int main()
     {
 
     }
+    string project[5];
     while(getline(infile, line))
     {
-        string project;
+        
         cout << " - " << endl ;
         cout << line.length() << line << endl ;
         for (int i = 0; i < line.length(); i++)
@@ -25,25 +26,30 @@ int main()
             cout << " + " << endl ;
             if (line[i] == 'r')
             {
-                project = "repairs";
+                project[day] = "repairs";
                 day++;
-                outfile << "Day " << day << ": " << project << endl;
+                // outfile << "Day " << day << ": " << project << endl;
             }
             else if (line[i] == 'c')
             {
-                project = "construction";
+                project[day] = "construction";
+                project[day - 1] = "none";
                 day++;
-                outfile << "Day " << day << ": " << project << endl;
+                // outfile << "Day " << day << ": " << project << endl;
             } 
             else if (line[i] == 'n')
             {
-                project = "none";
+                project[day] = "none";
                 day++;
-                outfile << "Day " << day << ": " << project << endl;
+                // outfile << "Day " << day << ": " << project << endl;
             }  
         }
         
     }
+    for (int i = 0; i < 4; i++)
+        {
+            outfile << "Day " << i+ 1 << ": " << project[i] << endl;
+        }
     infile.close();
     outfile.close();
     return 0;

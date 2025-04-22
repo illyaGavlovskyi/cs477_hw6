@@ -37,7 +37,7 @@ int main()
         {
             day[i] = day[i - 2] + c[i - 1];
             dayChoices[i] = 'c';
-            dayChoices[i - 1] = 'n';
+            // dayChoices[i - 1] = 'n';
         }
         
         // day[i] = max(day[i - 1] + r[i], day[i - 2] + c[i]);
